@@ -12,6 +12,7 @@ const db = require('./db');
 const seedDatabase = require('../seed');
 
 const app = express();
+app.set('trust proxy', 1);
 const port = process.env.PORT || 5000;
 const mlServiceUrl = process.env.ML_SERVICE_URL || 'http://localhost:8000';
 

@@ -68,6 +68,15 @@ const db = {
             };
         }
         
+        // 1b. server.js: SELECT * FROM designs WHERE image_path = ?
+        if (sqlClean.includes('SELECT * FROM designs WHERE image_path = ?')) {
+            return {
+                get(image_path) {
+                    return data.designs.find(d => d.image_path === image_path);
+                }
+            };
+        }
+        
         // 2. seed.js: INSERT INTO designs (image_path, category, complexity, occasion, tags)
         if (sqlClean.includes('INSERT INTO designs')) {
             return {
