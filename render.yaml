@@ -8,6 +8,8 @@ services:
     envVars:
       - key: ALLOWED_ORIGIN
         value: '*'
+      - key: PYTHON_VERSION
+        value: 3.11.8
     plan: free
 
   # 2. Node.js Backend API Gateway
