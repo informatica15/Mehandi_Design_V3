@@ -1,8 +1,8 @@
-# Mehndi Design Recommendation & AR System ✨
+# 🎨 Mehndi Design Recommendation & AR System
 
-A complete, multi-service web application designed to scrape, curate, clean, classify, recommend, and visually overlay Mehndi (henna) designs. 
+🔗 **Live Demo:** [mehndi-frontend.onrender.com](https://mehndi-frontend.onrender.com/)
 
-The application utilizes a **three-service architecture** and is pre-configured with a Render blueprint for instant deployment.
+> ⚠️ Hosted on Render's free tier — the frontend, backend, and ML service may each take 30-60 seconds to wake up if idle. Please allow a moment on first load, especially when trying the recommendation or camera features.
 
 ---
 
