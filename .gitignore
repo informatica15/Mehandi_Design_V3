@@ -1,0 +1,40 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React Build Outputs
+frontend/dist/
+frontend/build/
+
+# Python caching & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# ML Service models
+ml-service/model/saved_model/
+ml-service/model/model.tflite
+ml-service/model/sklearn_model.joblib
+ml-service/model/dataset_features.joblib
+ml-service/model/training_summary.json
+
+# Local database files
+backend/database/mehndi.db
+backend/database/mehndi_db.json
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS Files
+.DS_Store
+Thumbs.db

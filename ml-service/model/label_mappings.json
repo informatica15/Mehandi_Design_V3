@@ -1,0 +1,23 @@
+{
+    "category": [
+        "arabic",
+        "bridal",
+        "finger",
+        "floral",
+        "geometric",
+        "indo_arabic",
+        "minimalist",
+        "rajasthani"
+    ],
+    "complexity": [
+        "intricate",
+        "medium",
+        "simple"
+    ],
+    "occasion": [
+        "everyday",
+        "festival",
+        "party",
+        "wedding"
+    ]
+}
