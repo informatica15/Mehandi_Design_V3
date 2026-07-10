@@ -999,7 +999,7 @@ export default function App() {
                   transform: `
                     translate(-50%, -50%)
                     translate(${arConfig.translateX}px, ${arConfig.translateY}px)
-                    rotate(${arConfig.enableTracking && handTracked ? -trackingOffset.angle + arConfig.rotate : arConfig.rotate}deg)
+                    rotate(${arConfig.enableTracking && handTracked ? trackingOffset.angle + arConfig.rotate : arConfig.rotate}deg)
                     scale(${arConfig.enableTracking && handTracked ? trackingOffset.scale * arConfig.scale : arConfig.scale})
                   `,
                   width: '280px',
