@@ -38,3 +38,8 @@ backend/database/mehndi_db.json
 # OS Files
 .DS_Store
 Thumbs.db
+
+# Scratch and test files
+scratch/
+*.jpg
+!dataset/**/*.jpg

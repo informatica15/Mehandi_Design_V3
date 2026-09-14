@@ -7,3 +7,5 @@ python-multipart>=0.0.6
 pandas>=2.0.0
 scikit-learn>=1.2.0
 opencv-python-headless>=4.7.0.72
+google-generativeai>=0.3.0
+

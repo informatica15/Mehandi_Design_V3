@@ -264,6 +264,70 @@ app.post('/api/classify', upload.single('image'), async (req, res) => {
     }
 });
 
+// POST /api/ar/generate (Proxy try-on generation request)
+app.post('/api/ar/generate', upload.single('hand_image'), async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({ error: "No hand image file uploaded." });
+        }
+        const { style_prompt, landmarks } = req.body;
+        if (!style_prompt) {
+            return res.status(400).json({ error: "style_prompt is required." });
+        }
+
+        const form = new FormData();
+        form.append('file', req.file.buffer, {
+            filename: req.file.originalname,
+            contentType: req.file.mimetype
+        });
+        form.append('style_prompt', style_prompt);
+        if (landmarks) {
+            form.append('landmarks', landmarks);
+        }
+
+
+        console.log(`Proxying try-on generation to ML service: ${mlServiceUrl}/generate-tryon`);
+        const mlRes = await axios.post(`${mlServiceUrl}/generate-tryon`, form, {
+            headers: {
+                ...form.getHeaders()
+            }
+        });
+
+        res.json(mlRes.data);
+    } catch (err) {
+        console.error("Error generating AR try-on:", err.message);
+        res.status(500).json({ error: "Failed to communicate with try-on generation service." });
+    }
+});
+
+// POST /api/recommend-prompts (Proxy prompt recommendation request)
+app.post('/api/recommend-prompts', async (req, res) => {
+    try {
+        const { style, occasion, complexity } = req.body;
+        if (!style || !occasion || !complexity) {
+            return res.status(400).json({ error: "style, occasion, and complexity are required." });
+        }
+
+        const form = new FormData();
+        form.append('style', style);
+        form.append('occasion', occasion);
+        form.append('complexity', complexity);
+
+        console.log(`Proxying prompt recommendation to ML service: ${mlServiceUrl}/recommend-prompts`);
+        const mlRes = await axios.post(`${mlServiceUrl}/recommend-prompts`, form, {
+            headers: {
+                ...form.getHeaders()
+            }
+        });
+
+        res.json(mlRes.data);
+    } catch (err) {
+        console.error("Error recommending prompts:", err.message);
+        res.status(500).json({ error: "Failed to communicate with prompt recommendation service." });
+    }
+});
+
+
 // POST /api/preferences (Like design / save filter selection)
 app.post('/api/preferences', (req, res) => {
     try {

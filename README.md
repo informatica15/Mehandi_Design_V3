@@ -18,7 +18,8 @@ graph TD
 
 1. **`ml-service`**: Python & FastAPI service implementing image classification and content-based recommendation. Employs a self-healing pipeline that runs a high-performance **MobileNetV2 CNN** under standard environments, or dynamically falls back to a **Scikit-Learn RandomForest** classifier under developer environments (like Python 3.14 on Windows) where TensorFlow is unavailable.
 2. **`backend`**: Node.js & Express REST gateway. Manages database catalog caching, user preferences, liked designs, and history tracking. Employs a pure-JavaScript JSON-based database engine that mirrors `better-sqlite3` to avoid environment compiler errors.
-3. **`frontend`**: React.js & Tailwind CSS. Features a conversational consultant interface, interactive search catalog, and a **Live AR webcam viewer** that overlays transparent blend-mode designs onto the user's hand (with Google MediaPipe auto hand-tracking and manual alignment backup sliders).
+3. **`frontend`**: React.js & Tailwind CSS. Features a conversational consultant interface, interactive search catalog, and a **Generative AI Try-on portal** that captures and crops the hand of the user (via MediaPipe tracking) and applies the selected design using structure-preserving displacement-mapping and stain blending, combined with real-time **Gemini Multimodal design placement critiques**.
+
 
 ---
 
